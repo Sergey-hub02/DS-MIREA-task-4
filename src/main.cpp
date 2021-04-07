@@ -10,27 +10,8 @@ int main() {
   cout << "Введите количество элементов массива: ";
   cin >> arrayLength;
 
-  vector<int> array;
+  vector<int> array = generateSorted(arrayLength, false);
 
-  string needRange;
-
-  cout << endl << "Задать диапазон чисел (да/нет)? ";
-  cin >> needRange;
-
-  if (needRange == "да" || needRange == "Да" || needRange == "дА" || needRange == "ДА") {
-    int arrayMinValue;
-    int arrayMaxValue;
-
-    cout << "Введите диапазон чисел: ";
-    cin >> arrayMinValue >> arrayMaxValue;
-
-    array = generate(arrayLength, arrayMinValue, arrayMaxValue);
-    goto start;       // не очень хорошо так делать
-  }
-
-  array = generate(arrayLength);
-
-start:
   clock_t time = clock();
   bubbleSort(array);
   time = clock() - time;

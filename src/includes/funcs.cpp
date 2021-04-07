@@ -24,6 +24,30 @@ std::vector<int> generate(const int& length, const int& min, const int& max) {
 
 
 /**
+ * Создаёт массив, упорядоченный по умолчанию в порядке возрастания
+ * @param length        количество элементов массива
+ * @param increasing    если true, то создаётся массив, элементы которого расположены в порядке возрастания
+ */
+std::vector<int> generateSorted(const int& length, const bool& increasing) {
+  std::vector<int> array(length);
+
+  if (increasing) {
+    for (int i = 0; i < length; ++i) {
+      array[i] = i;
+    }
+
+    return array;
+  }
+
+  for (int i = length, j = 0; i >= 0; --i, ++j) {
+    array[j] = i;
+  }
+
+  return array;
+}
+
+
+/**
  * Упорядочивает массив по возрастанию с помощью алгоритма сортировки пузырьком
  * @param array         упорядочиваемый массив
  */
