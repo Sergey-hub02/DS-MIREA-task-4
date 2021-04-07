@@ -4,6 +4,7 @@
 #include <random>
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 /**
  * Создаёт массив, заполненный случайными числами в заданном диапазоне, заданной длины
@@ -12,6 +13,13 @@
  * @param max           максимальное значение элемента массива
  */
 std::vector<int> generate(const int& length, const int& min = -10, const int& max = 25);
+
+
+/**
+ * Упорядочивает массив по возрастанию с помощью алгоритма сортировки пузырьком
+ * @param array         упорядочиваемый массив
+ */
+void bubbleSort(std::vector<int>& array);
 
 
 /**

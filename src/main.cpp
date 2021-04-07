@@ -1,3 +1,4 @@
+#include <ctime>
 #include <string>
 #include "./includes/funcs.hpp"
 
@@ -30,6 +31,11 @@ int main() {
   array = generate(arrayLength);
 
 start:
-  cout << endl << "Изначальный массив: " << array << endl;
+  clock_t time = clock();
+  bubbleSort(array);
+  time = clock() - time;
+  double elapsed = static_cast<double>(time) / CLOCKS_PER_SEC;
+  cout << "Время выполнения: " << elapsed << " секунд" << endl;
+
   return 0;
 }

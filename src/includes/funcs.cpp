@@ -24,6 +24,23 @@ std::vector<int> generate(const int& length, const int& min, const int& max) {
 
 
 /**
+ * Упорядочивает массив по возрастанию с помощью алгоритма сортировки пузырьком
+ * @param array         упорядочиваемый массив
+ */
+void bubbleSort(std::vector<int>& array) {
+  const int N = array.size();
+
+  for (int i = 0; i < N - 1; ++i) {
+    for (int j = 0; j < N - i - 1; ++j) {   // до самого последнего элемента не нужно доходить
+      if (array[j] > array[j + 1]) {
+        std::swap(array[j], array[j + 1]);
+      }
+    }
+  }
+}
+
+
+/**
  * Выводит массив на экран в формате [эл.1, эл.2, ..., эл.N]
  * @param out           поток вывода
  * @param array         массив, выводимый на экран
