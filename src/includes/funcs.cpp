@@ -30,13 +30,21 @@ std::vector<int> generate(const int& length, const int& min, const int& max) {
 void bubbleSort(std::vector<int>& array) {
   const int N = array.size();
 
+  unsigned long long comparisons = 0;
+  unsigned long long transferrings = 0;
+
   for (int i = 0; i < N - 1; ++i) {
     for (int j = 0; j < N - i - 1; ++j) {   // до самого последнего элемента не нужно доходить
+      ++comparisons;
       if (array[j] > array[j + 1]) {
+        ++transferrings;
         std::swap(array[j], array[j + 1]);
       }
     }
   }
+
+  std::cout << "Выполнено сравнений: " << comparisons << std::endl;
+  std::cout << "Выполнено перемещений: " << transferrings << std::endl;
 }
 
 
