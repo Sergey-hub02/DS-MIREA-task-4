@@ -79,11 +79,23 @@ void bubbleSort(std::vector<int>& array) {
 void insertionSort(std::vector<int>& array) {
   const int N = array.size();
 
+  unsigned long long comparisons = static_cast<unsigned long long>(N / 2 * (N - 1));
+  unsigned long long transferrings = 0;
+
   for (int i = 1; i < N; ++i) {
     for (int j = i; j > 0 && array[j] < array[j - 1]; --j) {
+      // ++comparisons;
+      // if (array[j] < array[j - 1]) {
+      //   std::swap(array[j], array[j - 1]);
+      //   ++transferrings;
+      // }
       std::swap(array[j], array[j - 1]);
+      ++transferrings;
     }
   }
+
+  std::cout << "Сравнений: " << comparisons << std::endl;
+  std::cout << "Перемещений: " << transferrings << std::endl;
 }
 
 
