@@ -39,7 +39,7 @@ std::vector<int> generateSorted(const int& length, const bool& increasing) {
     return array;
   }
 
-  for (int i = length, j = 0; i >= 0; --i, ++j) {
+  for (int i = length - 1, j = 0; i >= 0; --i, ++j) {
     array[j] = i;
   }
 

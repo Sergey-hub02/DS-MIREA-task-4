@@ -10,8 +10,22 @@ int main() {
   cout << "Введите количество элементов массива: ";
   cin >> arrayLength;
 
-  vector<int> array = generateSorted(arrayLength, false);
+  string increasing;
 
+  cout << "Создать возрастающую последовательность (да/нет)? ";
+  cin >> increasing;
+
+  vector<int> array;
+
+  if (increasing == "да" || increasing == "ДА" || increasing == "Да" || increasing == "дА") {
+    array = generateSorted(arrayLength);
+    goto start;
+  }
+
+  array = generateSorted(arrayLength, false);
+
+
+start:
   clock_t time = clock();
   bubbleSort(array);
   time = clock() - time;
