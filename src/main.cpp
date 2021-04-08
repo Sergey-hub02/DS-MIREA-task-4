@@ -10,25 +10,33 @@ int main() {
   cout << "Введите количество элементов массива: ";
   cin >> arrayLength;
 
-  string increasing;
+  string needRange;
 
-  cout << "Создать возрастающую последовательность (да/нет)? ";
-  cin >> increasing;
+  cout << "Задать диапазон (да/нет)? ";
+  cin >> needRange;
 
   vector<int> array;
 
-  if (increasing == "да" || increasing == "ДА" || increasing == "Да" || increasing == "дА") {
-    array = generateSorted(arrayLength);
+  if (needRange == "да" || needRange == "ДА" || needRange == "Да" || needRange == "дА") {
+    int arrayMinVal;
+    int arrayMaxVal;
+
+    cout << "Введите диапазон чисел: ";
+    cin >> arrayMinVal >> arrayMaxVal;
+
+    array = generate(arrayLength, arrayMinVal, arrayMaxVal);
     goto start;
   }
 
-  array = generateSorted(arrayLength, false);
+  array = generate(arrayLength);
 
 
 start:
   clock_t time = clock();
-  bubbleSort(array);
+
+  insertionSort(array);
   time = clock() - time;
+
   double elapsed = static_cast<double>(time) / CLOCKS_PER_SEC;
   cout << "Время выполнения: " << elapsed << " секунд" << endl;
 

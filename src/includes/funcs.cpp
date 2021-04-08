@@ -73,6 +73,21 @@ void bubbleSort(std::vector<int>& array) {
 
 
 /**
+ * Упорядочивает массив по возрастанию с помощью алгоритма сортировки вставками
+ * @param array         упорядочиваемый массив
+ */
+void insertionSort(std::vector<int>& array) {
+  const int N = array.size();
+
+  for (int i = 1; i < N; ++i) {
+    for (int j = i; j > 0 && array[j] < array[j - 1]; --j) {
+      std::swap(array[j], array[j - 1]);
+    }
+  }
+}
+
+
+/**
  * Выводит массив на экран в формате [эл.1, эл.2, ..., эл.N]
  * @param out           поток вывода
  * @param array         массив, выводимый на экран
